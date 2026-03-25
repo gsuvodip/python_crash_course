@@ -2,6 +2,7 @@ import sys
 
 import pygame
 
+from ship import Ship
 from settings import Settings
 
 
@@ -11,7 +12,7 @@ def run_game():
     screen = pygame.display.set_mode((game_settings.screen_width, game_settings.screen_height))
     pygame.display.set_caption("Alien Invasion")
 
-    bg_color = (230, 230, 230)
+    ship = Ship(screen)
 
     while True:
         # watch for keyboard and mouse events
@@ -21,6 +22,7 @@ def run_game():
 
         # redraw the screen during each pass through the loop
         screen.fill(game_settings.bg_color)
+        ship.blitme()
 
         # make the most recently drawn screen visible
         pygame.display.flip()
